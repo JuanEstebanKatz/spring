@@ -18,12 +18,17 @@ public interface ClienteService {
 	
 	public ClienteEntity crearCliente (ClienteEntity cli) throws Exception;
 	
-	@Query( "select cl.primer_nombre from mydb.cliente cl, mydb.cuenta cu" + 
+	/**
+	 * @Query( "select cl.primer_nombre from mydb.cliente cl, mydb.cuenta cu" + 
 			"where cl.id_cliente = cu.id_cliente" + 
 			"and cl.id_cliente=:idCliente")
 	public void validacionCliente(@Param("idCliente")Integer idCliente);
+	 * @return 
+	 */
 
-	void eliminarCliente(BigInteger id);
+	String eliminarCliente(BigInteger idCliente);
+
+	public ClienteEntity modificarCliente(ClienteEntity cli);
 	
 	
 

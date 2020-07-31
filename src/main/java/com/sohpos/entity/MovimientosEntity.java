@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class MovimientosEntity {
 
 	@Id
-	@Column (name = "movimientoId")
+	@Column (name = "movimiento_id")
 	private BigInteger movimientoId;
 	
 	@Column (name = "tipo")
@@ -43,7 +43,7 @@ public class MovimientosEntity {
 	@Column (name = "usuario_modificacion")
 	private String usuarioModificacion;
 	
-	@Column (name = "cuentaId")
+	@Column (name = "id_cuenta")
 	private BigInteger cuentaId;
 
 	public BigInteger getMovimientoId() {
@@ -133,6 +133,5 @@ public class MovimientosEntity {
 	public void setCuentaId(BigInteger cuentaId) {
 		this.cuentaId = cuentaId;
 	}
-	
-	
+
 }

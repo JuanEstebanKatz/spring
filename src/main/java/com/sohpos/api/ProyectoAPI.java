@@ -33,6 +33,8 @@ public class ProyectoAPI {
 	@Autowired
 	public MovimientosService movimientosService;
 	
+	/////////// Para Cliente/////////////////
+	
 	@GetMapping ("/getcliente")
 	public List<ClienteEntity> getClientes(){
 		return clienteService.getClientes();
@@ -44,20 +46,58 @@ public class ProyectoAPI {
 	}
 	
 	@DeleteMapping (value = "eliminacli/{id}")  
-	public void eliminar(@PathVariable("id") BigInteger id){
-		clienteService.eliminarCliente(id);	
+	public String eliminar(@PathVariable("id") BigInteger id){
+		return clienteService.eliminarCliente(id);	
 	}
 	
+	@PutMapping ("/modificacli")
+	public ClienteEntity modificar(@RequestBody ClienteEntity cli){
+	  return clienteService.modificarCliente(cli);
+	}
 	
+	////// Para Cuentas //////////////////
+
 	@GetMapping ("/getcuenta")
 	public List<CuentaEntity> getCuentas(){
 		return cuentaService.obtenerCuentas();
 	}
+
+	@PostMapping ("/crearcuenta")
+	public CuentaEntity crearCuenta(@RequestBody CuentaEntity cuenta) throws Exception {
+		return cuentaService.crearCuenta(cuenta);
+	}
 	
+	@DeleteMapping (value = "eliminacuenta/{id}")  
+	public String eliminarCuenta(@PathVariable("id") BigInteger id){
+		return cuentaService.eliminarCuenta(id);	
+	}
 	
-	@GetMapping ("/getMovimientos")
+	@PutMapping ("/modificacuenta")
+	public CuentaEntity modificarCuenta(@RequestBody CuentaEntity cuenta){
+	  return cuentaService.modificarCuenta(cuenta);
+	}
+	
+	// Para Movimientos
+	
+	@GetMapping ("/getmovimientos")
 	public List<MovimientosEntity> getMovimientos(){
 		return movimientosService.getMovimientos();
+	}
+	
+	@PostMapping ("/crearmovimiento")
+	public MovimientosEntity crearMovimiento(@RequestBody MovimientosEntity mov){
+		return movimientosService.crearMovimiento(mov);
+	}
+	
+	// para pasar con parametros mirar este ejemplo eliminamovimiento/2
+	@DeleteMapping (value = "eliminamovimiento")  
+	public String eliminarMovimiento(@RequestBody MovimientosEntity mov){
+		return movimientosService.eliminarMovimiento(mov);	
+	}
+	
+	@PutMapping ("/modificamovimiento")
+	public MovimientosEntity modificaMovimiento(@RequestBody MovimientosEntity mov){
+	  return movimientosService.modificarMov(mov);
 	}
 
 }

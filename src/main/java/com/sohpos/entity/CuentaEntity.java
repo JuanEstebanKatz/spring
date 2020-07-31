@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class CuentaEntity {
 
 	@Id
-	@Column (name = "idCuenta")
+	@Column (name = "id_cuenta")
 	private BigInteger idCuenta;
 	
 	@Column (name = "producto")
@@ -41,8 +41,8 @@ public class CuentaEntity {
 	@Column (name = "usuario_modificacion")
 	private String usuarioModificacion;
 	
-	@Column (name = "idCliente")
-	private BigInteger idCliente;
+	@Column (name = "id_cliente")
+	private BigInteger clienteId;
 
 	public BigInteger getIdCuenta() {
 		return idCuenta;
@@ -116,13 +116,15 @@ public class CuentaEntity {
 		this.usuarioModificacion = usuarioModificacion;
 	}
 
-	public BigInteger getIdCliente() {
-		return idCliente;
+	public BigInteger getClienteId() {
+		return clienteId;
 	}
 
-	public void setIdCliente(BigInteger idCliente) {
-		this.idCliente = idCliente;
+	public void setClienteId(BigInteger clienteId) {
+		this.clienteId = clienteId;
 	}
+
+
 	
 }
 
